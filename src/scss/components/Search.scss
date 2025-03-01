@@ -1,0 +1,30 @@
+.search {
+  &__container {
+    display: flex;
+    border: 1px solid var(--secondary-text-color);
+    border-radius: 20px;
+    padding: 0 1rem;
+  }
+
+  &__icon,
+  &__input input {
+    height: 40px;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.3rem;
+    padding-right: 1rem;
+  }
+
+  &__input input {
+    background-color: transparent;
+    color: var(--primary-text-color);
+    border: none;
+    outline: none;
+    font-size: 1rem;
+  }
+}
