@@ -6,9 +6,13 @@ import Settings from "./common/Settings";
 function Header() {
   return (
     <header className="header">
-      <Place />
-      <Search />
-      <Settings />
+      <div className="container">
+        <div className="header__body">
+          <Place />
+          <Search />
+          <Settings />
+        </div>
+      </div>
     </header>
   );
 }

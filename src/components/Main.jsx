@@ -1,11 +1,19 @@
+import PropTypes from "prop-types";
 import "../scss/components/Main.scss";
+import CurrentWeather from "./common/CurrentWeather";
 
-function Main() {
+function Main({ getCurrentWeatherFunc }) {
   return (
     <main className="main">
-      <h1>Main</h1>
+      <div className="container">
+        <CurrentWeather getCurrentWeather={getCurrentWeatherFunc} />
+      </div>
     </main>
   );
 }
+
+Main.propTypes = {
+  getCurrentWeatherFunc: PropTypes.func.isRequired,
+};
 
 export default Main;
