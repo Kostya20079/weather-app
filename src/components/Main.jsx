@@ -13,12 +13,12 @@ function Main({
         <CurrentWeather getCurrentWeather={getCurrentWeatherFunc} />
         <Forecast
           type="hourly"
-          title="Hourly forecast"
+          title="HOURLY FORECAST"
           forecastData={getHourlyForecastFunc()}
         />
         <Forecast
           type="daily"
-          title="Daily forecast"
+          title="21 DAYS FORECAST"
           forecastData={getDailyForecastFunc()}
         />
       </div>

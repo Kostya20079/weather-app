@@ -45,7 +45,9 @@ function HourInfoWidget({ data }) {
         </div>
         <div className="temperature">{Math.round(temperature)} ℃</div>
       </div>
-      <div className="precipitation">{Math.round(precipitation.total)}</div>
+      <div className="precipitation">
+        {Math.round(precipitation.total)} mm/h
+      </div>
       <div className="wind">
         <div className="speed">{wind.speed} mph</div>
         <div
