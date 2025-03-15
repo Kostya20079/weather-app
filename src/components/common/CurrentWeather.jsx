@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import "../../scss/components/CurrentWeather.scss";
 import InfoWidgets from "../ui/InfoWidgets";
+import WeatherIcon from "../ui/WeatherIcon";
 
 function CurrentWeather({ getCurrentWeather }) {
   const data = getCurrentWeather();
@@ -9,14 +10,7 @@ function CurrentWeather({ getCurrentWeather }) {
   return (
     <div className="current-weather">
       <div className="temperature">
-        <div className="weather-icon">
-          <img
-            src={`${
-              import.meta.env.VITE_WEATHER_ICONS_URL
-            }/set04/big/${icon_num}.png`}
-            alt={summary}
-          />
-        </div>
+        <WeatherIcon numOfIcon={icon_num} alt={summary}/>
         <div className="value">
           <div className="temperature-value">{temperature} °C</div>
           <div className="feels-like">fells like {feels_like} °C</div>

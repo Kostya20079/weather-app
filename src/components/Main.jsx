@@ -1,12 +1,26 @@
 import PropTypes from "prop-types";
 import "../scss/components/Main.scss";
 import CurrentWeather from "./common/CurrentWeather";
-
-function Main({ getCurrentWeatherFunc }) {
+import Forecast from "./common/Forecast";
+function Main({
+  getCurrentWeatherFunc,
+  getHourlyForecastFunc,
+  getDailyForecastFunc,
+}) {
   return (
     <main className="main">
       <div className="container">
         <CurrentWeather getCurrentWeather={getCurrentWeatherFunc} />
+        <Forecast
+          type="hourly"
+          title="Hourly forecast"
+          forecastData={getHourlyForecastFunc()}
+        />
+        <Forecast
+          type="daily"
+          title="Daily forecast"
+          forecastData={getDailyForecastFunc()}
+        />
       </div>
     </main>
   );
@@ -14,6 +28,8 @@ function Main({ getCurrentWeatherFunc }) {
 
 Main.propTypes = {
   getCurrentWeatherFunc: PropTypes.func.isRequired,
+  getHourlyForecast: PropTypes.func.isRequired,
+  getDailyForecast: PropTypes.func.isRequired,
 };
 
 export default Main;

@@ -2,7 +2,7 @@ import "./scss/components/App.scss";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import weatherDataFunction from "./api";
+import { getCurrentWeather, getDailyForecast, getHourlyForecast } from "./api";
 
 function App() {
   let dark = true;
@@ -10,7 +10,11 @@ function App() {
   return (
     <div className={`App-${dark ? "dark" : "light"}`}>
       <Header />
-      <Main getCurrentWeatherFunc={weatherDataFunction} />
+      <Main
+        getCurrentWeatherFunc={getCurrentWeather}
+        getHourlyForecastFunc={getHourlyForecast}
+        getDailyForecastFunc={getDailyForecast}
+      />
     </div>
   );
 }
