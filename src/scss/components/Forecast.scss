@@ -4,6 +4,10 @@
   margin-top: 2rem;
   @include no-text-select;
 
+  &__container {
+    position: relative;
+  }
+
   .widget-container {
     display: flex;
     align-items: center;
@@ -52,6 +56,32 @@
           margin-left: 0.25rem;
         }
       }
+    }
+  }
+
+  .move-button {
+    position: absolute;
+    background-color: var(--move-buttons-color);
+    border-color: var(--primary-text-color);
+    color: var(--primary-text-color);
+    border-radius: 3.5rem;
+    cursor: pointer;
+    z-index: 3;
+    opacity: 0.9;
+
+    width: 4rem;
+    height: 4rem;
+
+    $top-position: 50%;
+
+    &__left {
+      top: $top-position;
+      left: 1rem;
+    }
+
+    &__right {
+      top: $top-position;
+      right: 1rem;
     }
   }
 }

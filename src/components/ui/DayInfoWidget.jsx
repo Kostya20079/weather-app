@@ -31,7 +31,7 @@ function DayInfoWidget({ data }) {
     weather_date.day === today_date.day ? "Today" : weather_date.day;
 
   return (
-    <div className="widget">
+    <>
       <div className="day">{weather_date.day}</div>
       <div className="icon-temp">
         <div className="icon">
@@ -45,7 +45,7 @@ function DayInfoWidget({ data }) {
       <div className="precipitation">
         {Math.round(precipitation.total)} mm/h
       </div>
-    </div>
+    </>
   );
 }
 

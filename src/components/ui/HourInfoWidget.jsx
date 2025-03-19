@@ -30,13 +30,13 @@ function HourInfoWidget({ data }) {
 
   weather_date.day =
     weather_date.day === today_date.day && weather_date.time === today_date.time
-      ? "Today"
+      ? "Now"
       : weather_date.time === "12:00 AM"
       ? weather_date.day
       : "";
 
   return (
-    <div className="widget">
+    <>
       <div className="day">{weather_date.day}</div>
       <div className="time">{weather_date.time}</div>
       <div className="icon-temp">
@@ -57,7 +57,7 @@ function HourInfoWidget({ data }) {
           <i className="bi bi-send-fill"></i>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
