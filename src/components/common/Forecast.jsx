@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import DayInfoWidget from "../ui/DayInfoWidget";
 import HourInfoWidget from "../ui/HourInfoWidget";
 import HorizontalScroll from "../ui/HorizontalScroll";
-import MoveButtons from "../ui/MoveButtons";
+import ScrollButtons from "../ui/ScrollButtons";
 import { useRef } from "react";
 
 function Forecast({ type, title, forecastData }) {
@@ -13,7 +13,7 @@ function Forecast({ type, title, forecastData }) {
     <section className="forecast">
       <div className="forecast__container">
         <h3>{title}</h3>
-        <MoveButtons scrollRef={scrollRef} />
+        <ScrollButtons scrollRef={scrollRef} />
         <HorizontalScroll scrollRef={scrollRef}>
           {forecastData.map((singleData) => (
             <div className="widget" key={singleData.date || singleData.day}>
