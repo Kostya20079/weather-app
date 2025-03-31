@@ -1,9 +1,21 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { MEASUREMENT_SYSTEMS } from "../../constants/constants";
 import "../../scss/components/Settings.scss";
 import ThemeContext from "../../context/theme.context";
+import WeatherContext from "../../context/weather.context";
 
 function Settings() {
+  const [openSettings, setOpenSettings] = useState(false);
+
   const { dark, setDark, saveToLocalStorage } = useContext(ThemeContext);
+
+  const { measurementSystem, setMeasurementSystem } =
+    useContext(WeatherContext);
+
+  const changeMeasurementSystem = (system) => {
+    setMeasurementSystem(system);
+    setOpenSettings(false);
+  };
 
   const toggleTheme = () => {
     setDark((prevColor) => {
@@ -25,8 +37,29 @@ function Settings() {
           </div>
         </div>
       </div>
-      <div className="settings__btn">
-        <i className="bi bi-gear"></i>
+      <div
+        className="settings__btn"
+        onClick={() => setOpenSettings((prev) => !prev)}
+      >
+        <i className={`bi bi-gear${openSettings ? "-fill" : ""}`}></i>
+      </div>
+      <div className={`settings__menu ${openSettings ? "open" : ""}`}>
+        <div className="measurement-systems">
+          <h4>Measurement system: </h4>
+          <div className="systems">
+            {Object.values(MEASUREMENT_SYSTEMS).map((system) => (
+              <div
+                className={`system ${
+                  system === measurementSystem ? "active" : ""
+                }`}
+                key={system}
+                onClick={() => changeMeasurementSystem(system)}
+              >
+                {system}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
