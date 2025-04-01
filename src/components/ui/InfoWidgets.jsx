@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function InfoWidgets({ data }) {
+function InfoWidgets({ data, units }) {
   const { precipitation, wind, humidity, uv_index, cloud_cover, visibility } =
     data;
 
@@ -9,43 +9,43 @@ function InfoWidgets({ data }) {
       id: 0,
       icon: "droplet",
       name: "Precipitation",
-      value: Math.round(precipitation.total),
-      unit: "mm/h",
+      value: precipitation.total,
+      unit: units.precipitation,
     },
     {
       id: 1,
       icon: "wind",
       name: "Wind",
       value: Math.round(wind.speed),
-      unit: "m/s",
+      unit: units.wind_speed,
     },
     {
       id: 2,
       icon: "moisture",
       name: "Humidity",
       value: Math.round(humidity),
-      unit: "%",
+      unit: units.humidity,
     },
     {
       id: 3,
       icon: "sunglasses",
       name: "UV index",
       value: Math.round(uv_index),
-      unit: "",
+      unit: units.uv_index,
     },
     {
       id: 4,
       icon: "clouds-fill",
       name: "Clouds cover",
       value: Math.round(cloud_cover),
-      unit: "%",
+      unit: units.cloud_cover,
     },
     {
       id: 5,
       icon: "eye",
       name: "Visibility",
       value: Math.round(visibility),
-      unit: "km",
+      unit: units.visibility,
     },
   ];
 
@@ -72,6 +72,7 @@ function InfoWidgets({ data }) {
 
 InfoWidgets.propTypes = {
   data: PropTypes.array.isRequired,
+  units: PropTypes.object.isRequired,
 };
 
 export default InfoWidgets;

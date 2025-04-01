@@ -1,8 +1,12 @@
 import PropTypes from "prop-types";
 import WeatherIcon from "./WeatherIcon";
+import { useContext } from "react";
+import WeatherContext from "../../context/weather.context";
 
 function HourInfoWidget({ data }) {
   const { date, icon, summary, temperature, precipitation, wind } = data;
+
+  const { units } = useContext(WeatherContext);
 
   const today_date = {
     day: new Intl.DateTimeFormat(navigator.language, {
@@ -28,10 +32,17 @@ function HourInfoWidget({ data }) {
     }).format(new Date(date).setMinutes(0)),
   };
 
+  // get local representation of midnight
+  const midnight = new Intl.DateTimeFormat(navigator.language, {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  }).format(new Date().setHours(0, 0, 0, 0));
+
   weather_date.day =
     weather_date.day === today_date.day && weather_date.time === today_date.time
       ? "Now"
-      : weather_date.time === "12:00 AM"
+      : weather_date.time === midnight
       ? weather_date.day
       : "";
 
@@ -43,13 +54,13 @@ function HourInfoWidget({ data }) {
         <div className="icon">
           <WeatherIcon numOfIcon={icon} alt={summary} />
         </div>
-        <div className="temperature">{Math.round(temperature)} ℃</div>
+        <div className="temperature">{Math.round(temperature)} {units.temperature}</div>
       </div>
       <div className="precipitation">
-        {Math.round(precipitation.total)} mm/h
+        {precipitation.total} {units.precipitation}
       </div>
       <div className="wind">
-        <div className="speed">{wind.speed} mph</div>
+        <div className="speed">{wind.speed} {units.wind_speed}</div>
         <div
           className="dir"
           style={{ transform: `rotate(${-45 + wind.angle}deg)` }}

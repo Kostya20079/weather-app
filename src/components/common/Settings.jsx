@@ -14,6 +14,7 @@ function Settings() {
 
   const changeMeasurementSystem = (system) => {
     setMeasurementSystem(system);
+    localStorage.setItem("measurement-system", JSON.stringify(system));
     setOpenSettings(false);
   };
 

@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import WeatherIcon from "./WeatherIcon";
+import { useContext } from "react";
+import WeatherContext from "../../context/weather.context";
 
 function DayInfoWidget({ data }) {
   const {
@@ -10,6 +12,8 @@ function DayInfoWidget({ data }) {
     summary,
     precipitation,
   } = data;
+
+  const { units } = useContext(WeatherContext);
 
   const today_date = {
     day: new Intl.DateTimeFormat(navigator.language, {
@@ -38,12 +42,16 @@ function DayInfoWidget({ data }) {
           <WeatherIcon numOfIcon={icon} alt={summary} />
         </div>
         <div className="temperature">
-          <div className="max">{Math.round(temperature_max)} ℃</div>
-          <div className="min">{Math.round(temperature_min)} ℃</div>
+          <div className="max">
+            {Math.round(temperature_max)} {units.temperature}
+          </div>
+          <div className="min">
+            {Math.round(temperature_min)} {units.temperature}
+          </div>
         </div>
       </div>
       <div className="precipitation">
-        {Math.round(precipitation.total)} mm/h
+        {precipitation.total} {units.precipitation}
       </div>
     </>
   );

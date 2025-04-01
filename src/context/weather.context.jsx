@@ -1,6 +1,12 @@
 import { createContext, useEffect, useState } from "react";
 import { getWeatherData } from "./../api";
-import { DEFAULT_PLACE, MEASUREMENT_SYSTEMS } from "../constants/constants";
+import {
+  DEFAULT_PLACE,
+  MEASUREMENT_SYSTEMS,
+  UNITS,
+} from "../constants/constants";
+
+const MEASUREMENT_KEY = "measurement-system";
 
 const WeatherContext = createContext();
 
@@ -11,8 +17,10 @@ function WeatherProvider({ children }) {
   const [hourForecast, setHourlyForecast] = useState([]);
   const [dayForecast, setDailyForecast] = useState([]);
   const [measurementSystem, setMeasurementSystem] = useState(
-    MEASUREMENT_SYSTEMS.AUTO
+    JSON.parse(localStorage.getItem(MEASUREMENT_KEY)) ||
+      MEASUREMENT_SYSTEMS.AUTO
   );
+  const [units, setUnits] = useState({});
 
   useEffect(() => {
     async function _getWeatherData() {
@@ -20,23 +28,33 @@ function WeatherProvider({ children }) {
       const currentData = await getWeatherData(
         "current",
         place.place_id,
-        "auto"
+        measurementSystem
       );
       setCurrentWeather(currentData.current);
+      // set units to state
+      setUnits(UNITS[currentData.units]);
 
       // Get hourly forecast
-      const hourlyData = await getWeatherData("hourly", place.place_id, "auto");
+      const hourlyData = await getWeatherData(
+        "hourly",
+        place.place_id,
+        measurementSystem
+      );
       setHourlyForecast(hourlyData.hourly.data);
 
       // Get daily forecast
-      const dailyData = await getWeatherData("daily", place.place_id, "auto");
+      const dailyData = await getWeatherData(
+        "daily",
+        place.place_id,
+        measurementSystem
+      );
       setDailyForecast(dailyData.daily.data);
 
       setLoading(false);
     }
 
     _getWeatherData();
-  }, [place]);
+  }, [place, measurementSystem]);
 
   return (
     <WeatherContext.Provider
@@ -48,6 +66,7 @@ function WeatherProvider({ children }) {
         dayForecast,
         measurementSystem,
         setMeasurementSystem,
+        units,
       }}
     >
       {children}
