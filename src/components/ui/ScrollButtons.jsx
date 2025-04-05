@@ -1,5 +1,7 @@
+import "./../../scss/components/ScrollButtons.scss";
+
 function MoveButtons({ scrollRef }) {
-  const scrollAmount = 120; // size to move
+  const scrollAmount = 125; // size to move
 
   const handleClickLeft = () => {
     if (scrollRef.current) {
@@ -14,20 +16,20 @@ function MoveButtons({ scrollRef }) {
   };
 
   return (
-    <>
+    <div className="scroll-buttons">
       <button
         className="move-button move-button__left"
         onClick={handleClickLeft}
       >
-        <i className="bi bi-arrow-left"></i>
+        <i className="bi bi-caret-left-fill"></i>
       </button>
       <button
         className="move-button move-button__right"
         onClick={handleClickRight}
       >
-        <i className="bi bi-arrow-right"></i>
+        <i className="bi bi-caret-right-fill"></i>
       </button>
-    </>
+    </div>
   );
 }
 

@@ -22,6 +22,9 @@ function Search() {
 
   const changePlace = (place) => {
     setPlace(place);
+
+    localStorage.setItem("place", JSON.stringify(place));
+
     setText("");
     setOpenSearchResults(false);
   };

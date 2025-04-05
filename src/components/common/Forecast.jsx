@@ -10,8 +10,8 @@ function Forecast({ type, title, forecastData }) {
   const scrollRef = useRef();
   return (
     <section className="forecast">
+      <h3>{title}</h3>
       <div className="forecast__container">
-        <h3>{title}</h3>
         <ScrollButtons scrollRef={scrollRef} />
         <HorizontalScroll scrollRef={scrollRef}>
           {forecastData?.map((singleData, index) => (

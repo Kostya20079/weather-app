@@ -1,4 +1,5 @@
 $header-height: 3.5rem;
+$widget-card-size: 115px;
 $main-height: calc(100vh - $header-height);
 
 @mixin no-text-select {

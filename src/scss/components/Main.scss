@@ -8,7 +8,11 @@
   overflow-x: auto;
   overflow-y: hidden;
 
-  @media only screen and (max-width: 821px) {
+  @media only screen and (max-width: 760px) {
+    height: auto;
+  }
+
+  @media only screen and (max-width: 920px) {
     margin: 0 2rem;
   }
 }

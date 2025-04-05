@@ -52,6 +52,10 @@ $height: 250px;
       margin-top: 1rem;
     }
 
+    @media only screen and (max-width: 920px) {
+      flex: auto;
+    }
+
     .widget {
       width: 182px;
 

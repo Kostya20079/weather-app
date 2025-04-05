@@ -11,7 +11,9 @@ const MEASUREMENT_KEY = "measurement-system";
 const WeatherContext = createContext();
 
 function WeatherProvider({ children }) {
-  const [place, setPlace] = useState(DEFAULT_PLACE);
+  const [place, setPlace] = useState(
+    JSON.parse(localStorage.getItem("place")) || DEFAULT_PLACE
+  );
   const [loading, setLoading] = useState(true);
   const [currentWeather, setCurrentWeather] = useState({});
   const [hourForecast, setHourlyForecast] = useState([]);
