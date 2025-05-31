@@ -10,8 +10,8 @@ The app features a **dark/light theme toggle**, unit switching (Celsius/Fahrenhe
 
 ## 📷 Screenshots
 
-<img src="https://github.com/user-attachments/assets/f65190fa-bb88-4b5e-ab7f-df0adb35cbc5" width="48%" />
-<img src="https://github.com/user-attachments/assets/88255aeb-726e-462e-83f6-ed44d3cfa237" width="48%" />
+<img src="./public/assets/dark-theme.png" width="48%" />
+<img src="./public/assets/light-theme.png" width="48%" />
 
 ## 🔧 Setup Instructions
 
@@ -29,12 +29,16 @@ npm install
 ### 3. Set Up Environment Variables
 Create a .env file in the root of the project and add the following:
 ```ini
-VITE_WEATHER_ICONS_URL="/dist/weather_icons"
+VITE_WEATHER_ICONS_URL="/weather_icons"
 VITE_WEATHER_API_KEY="your_api_key_here"
 ```
 > You can get your API key from [Meteosource on RapidAPI](https://rapidapi.com/MeteosourceWeather/api/ai-weather-by-meteosource).
 
-### 4. Run the App
+### 4. 📁 Weather Icons Setup
+Make sure to extract the provided `weather_icons.zip` file into your project’s `/public/weather_icons` directory.
+
+
+### 5. Run the App
 ```bash
 npm run start
 ```
