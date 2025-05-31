@@ -1,9 +1,9 @@
 export const DEFAULT_PLACE = {
-  name: "Kraków",
+  name: "Krakow",
   place_id: "krakow",
-  adm_area1: "Województwo małopolskie",
+  adm_area1: "Lesser Poland",
   adm_area2: "Kraków",
-  country: "Polska",
+  country: "Poland",
   lat: "50.06143N",
   lon: "19.93658E",
   timezone: "Europe/Warsaw",
