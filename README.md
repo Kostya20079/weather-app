@@ -8,6 +8,11 @@ A modern and user-friendly weather forecast app built with **React** and powered
 
 The app features a **dark/light theme toggle**, unit switching (Celsius/Fahrenheit, metric/imperial), and a clean, responsive interface.
 
+## 📷 Screenshots
+
+<img src="https://github.com/user-attachments/assets/f65190fa-bb88-4b5e-ab7f-df0adb35cbc5" width="48%" />
+<img src="https://github.com/user-attachments/assets/88255aeb-726e-462e-83f6-ed44d3cfa237" width="48%" />
+
 ## 🔧 Setup Instructions
 
 ### 1. Clone the Repository
