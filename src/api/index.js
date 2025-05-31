@@ -7,7 +7,7 @@ export async function getWeatherData(endpoint, placeId, measurementSystem) {
     params: {
       place_id: placeId,
       timezone: "auto",
-      language: "pl", //TODO make setting language
+      language: "en",
       units: measurementSystem,
     },
     headers: {
